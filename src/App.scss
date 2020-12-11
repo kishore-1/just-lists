@@ -1,22 +1,44 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Source Sans Pro", "FontAwesome", sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Source Sans Pro', 'FontAwesome', sans-serif;
+}
+
+html,body {
+  overflow-x: hidden;
+  background-color: #e6e6e6;
 }
 
 #root {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 }
 
+@media only screen and (max-width: 1150px) {
+	#root {
+		font-size: 17px;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	#root {
+		font-size: 14px;
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	#root {
+		font-size: 13px;
+	}
+}
 .page--title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #e6e6e6;
-  font-weight: 700;
-  font-size: 2em;
-  color: #f05454;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #e6e6e6;
+	font-weight: 700;
+	font-size: 2em;
+	color: #f05454;
 }

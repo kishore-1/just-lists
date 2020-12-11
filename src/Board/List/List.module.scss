@@ -2,7 +2,7 @@
 	position: relative;
 	width: 14em;
 	min-height: 7em;
-	max-height: 100%;
+	max-height: 80vh;
 	padding: 0.8em;
 	background-color: #fff;
 	border-radius: 0.2em;
@@ -11,7 +11,7 @@
 	overflow: auto;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
-
+	
 	&::-webkit-scrollbar {
 		display: none;
 	}
@@ -29,8 +29,7 @@
 
 	.btn {
 		display: inline-block;
-		width: 100%;
-		font-size: 0.7em;
+		width: 99%;
 		background-color: #222831;
 		border: 0.1em solid #000;
 
@@ -39,3 +38,11 @@
 		}
 	}
 }
+
+@media only screen and (max-width: 1100px) {
+	.list {
+		max-height: 100%;
+		margin: 1em auto;
+	}
+}
+

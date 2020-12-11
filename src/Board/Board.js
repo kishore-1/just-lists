@@ -40,11 +40,9 @@ const Board = () => {
         <>
             <div className={board}>
                 {boardData.lists && boardData.lists.map(list => <List key={list} id={list} removeList={removeList} />)}
-                {boardData.lists.length < 5 ?
-                    <Button className={btn} onClick={() => addList()}>
-                        Add list
-                    </Button> : null
-                }
+                <Button className={btn} onClick={() => addList()}>
+                    Add list
+                </Button>
             </div>
         </>
     )
