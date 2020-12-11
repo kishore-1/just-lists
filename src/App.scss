@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", "FontAwesome", sans-serif;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+.page--title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e6e6e6;
+  font-weight: 700;
+  font-size: 2em;
+  color: #f05454;
+}

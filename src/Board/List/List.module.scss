@@ -1,0 +1,41 @@
+.list {
+	position: relative;
+	width: 14em;
+	min-height: 7em;
+	max-height: 100%;
+	padding: 0.8em;
+	background-color: #fff;
+	border-radius: 0.2em;
+	box-shadow: 5px 5px 8px #c0bebe;
+	margin: 10px;
+	overflow: auto;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	.listName {
+		width: 93%;
+		font-size: 1.4em;
+		font-weight: 700;
+		background-color: inherit;
+		border: none;
+		color: #30475e;
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.btn {
+		display: inline-block;
+		width: 100%;
+		font-size: 0.7em;
+		background-color: #222831;
+		border: 0.1em solid #000;
+
+		&.noCardBtn {
+			margin-top: 2em;
+		}
+	}
+}
