@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from '../UI/Button/Button';
 import List from '../Board/List/List';
+import uuid from 'react-uuid';
 import { board, btn } from './Board.module.scss';
 
 const Board = () => {
@@ -20,9 +21,10 @@ const Board = () => {
 
     const addList = () => {
         boardData.lists = boardData.lists || [];
-        boardData.lists.push(`b_1_${boardData.lists.length + 1}`);
+        let uid = uuid();
+        boardData.lists.push(uid);
         let lists = JSON.parse(localStorage.getItem('lists')) || {};
-        lists[`b_1_${boardData.lists.length}`] = { title: "", cards: [] };
+        lists[uid] = { title: "", cards: [] };
         setData(lists);
     }
     const removeList = (listId) => {

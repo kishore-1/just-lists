@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from '../../Board/List/Card/Card';
 import Button from '../../UI/Button/Button';
 import { list, listName, btn, noCardBtn } from './List.module.scss';
-
+import uuid from 'react-uuid';
 
 const List = (props) => {
     const [listData, setListData] = useState({ title: "", cards: [] });
@@ -22,9 +22,10 @@ const List = (props) => {
 
     const addCard = () => {
         listData.cards = listData.cards || [];
-        listData.cards.push(`${props.id}_${listData.cards.length + 1}`);
+        let uid = uuid();
+        listData.cards.push(uid);
         let cards = JSON.parse(localStorage.getItem('cards')) || {};
-        cards[`${props.id}_${listData.cards.length}`] = { title: "", comment: "" };
+        cards[uid] = { title: "", comment: "" };
         localStorage.setItem('cards', JSON.stringify(cards));
         setData();
     }

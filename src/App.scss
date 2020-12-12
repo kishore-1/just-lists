@@ -18,23 +18,18 @@ html,body {
 
 @media only screen and (max-width: 1150px) {
 	#root {
-		font-size: 17px;
+		font-size: 18px;
 	}
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 400px) {
 	#root {
 		font-size: 14px;
 	}
 }
-
-@media only screen and (max-width: 550px) {
-	#root {
-		font-size: 13px;
-	}
-}
 .page--title {
-	position: absolute;
+  position: absolute;
+  top: 1em;
 	left: 50%;
 	transform: translateX(-50%);
 	background-color: #e6e6e6;

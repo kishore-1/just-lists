@@ -1,13 +1,13 @@
 .list {
 	position: relative;
-	width: 14em;
+	width: 15em;
 	min-height: 7em;
 	max-height: 80vh;
 	padding: 0.8em;
 	background-color: #fff;
 	border-radius: 0.2em;
 	box-shadow: 5px 5px 8px #c0bebe;
-	margin: 10px;
+	margin: 0.8em;
 	overflow: auto;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
@@ -42,7 +42,6 @@
 @media only screen and (max-width: 1100px) {
 	.list {
 		max-height: 100%;
-		margin: 1em auto;
 	}
 }
 
