@@ -1,0 +1,38 @@
+@import "../../../variable";
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    cursor: default;
+}
+
+.menu {
+    position: absolute;
+    min-width: 65px;
+    padding: 5px;
+    background-color: $slate;
+    z-index: 101;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid $gray;
+    font-size: 15px;
+
+    &__option {
+        width: 100%;
+        list-style: none;
+        padding: 5px;
+        color: darken($darkest-gray, 10);
+
+        &:hover {
+            background-color: darken($slate, 10);
+        }
+    }
+}

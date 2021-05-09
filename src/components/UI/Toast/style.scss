@@ -1,0 +1,39 @@
+@import '../../../variable';
+
+.toast {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    z-index: 999;
+    min-width: 500px;
+    text-align: center;
+    border-radius: 10px; 
+    padding: 13px;  
+    color: $slate;
+    font-weight: 600;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    transform: translateX(-50%);
+
+    &--error {
+        background-color: rgba(253, 34, 34, 0.7);
+    }
+    
+    &--warning {
+        background-color: rgba(252, 150, 34, 0.7);
+    }
+    
+    &--success {
+        background-color: rgba(76, 202, 7, 0.7);
+    }
+      
+}
+
+@keyframes fadein {
+    from {top: 0; opacity: 0;}
+    to {top: 10px; opacity: 1;}
+}
+  
+@keyframes fadeout {
+    from {top: 10px; opacity: 1;}
+    to {top: 0px; opacity: 0;}
+}

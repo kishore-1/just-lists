@@ -1,0 +1,116 @@
+@import "../../../../variable";
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 20px;
+  width: 100%;
+  padding: 5px 0;
+  box-shadow: 5px 5px 8px #c0bebe;
+  border-radius: 7px;
+  transition: opacity 0.3s ease;
+  animation: slide-up 0.4s ease;
+
+  &--placeholder {
+    padding: 2px;
+    border: 1px solid #c0bebe;
+  }
+  &__inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+
+    &--input {
+      cursor: auto;
+    }
+  }
+  &__title {
+    width: 100%;
+    padding: 5px 7px;
+    font-size: $fz-lg;
+    font-weight: 600;
+    color: $darkest-gray;
+    border: none;
+    border-radius: inherit;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  &__delete {
+    padding: 10px;
+    cursor: pointer;
+    color: $dark-gray;
+    transition: $transition;
+
+    &:hover {
+      transform: translateY(-1px);
+      color: darken($color: $dark-gray, $amount: 20);
+    }
+    &--light {
+      font-size: 13px !important;
+    }
+  }
+  &--remove {
+    opacity: 0;
+  }
+}
+
+.modal-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  background-color: $slate;
+  border-radius: 10px;
+  color: $darkest-gray;
+  padding: 30px;
+
+  &__field {
+    margin-top: 15px;
+    color: $darkest-gray;
+    font-size: $fz-lg;
+    font-weight: 600;
+  }
+  &__title {
+    width: 100%;
+    margin: 5px 0 0;
+    padding: 5px;
+    border-radius: 5px;
+    line-height: 24px;
+    border: 1px solid $dark-gray;
+    color: darken($darkest-gray, 10);
+
+    &:focus {
+      outline: none;
+    }
+  }
+  &__comment {
+    width: 100%;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+    resize: none;
+    line-height: 24px;
+    color: darken($darkest-gray, 10);
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

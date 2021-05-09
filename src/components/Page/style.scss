@@ -1,0 +1,69 @@
+@import '../../variable';
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+	width: 100%;
+	padding: 0 50px;
+}
+.page {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+
+	&__title {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 150px;
+		background-color: $gray;
+		font-weight: 700;
+		font-size: $fz-xxl;
+		color: $red;
+	}
+	&__btn {
+		margin: 40px auto;
+	}
+}
+
+.empty-state {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+
+	&__image {
+		display: block;
+		height: 250px;
+	}
+	&__content {
+		margin-top: 30px;
+		color: $dark-gray;
+		font-size: $fz-xl;
+		font-weight: 600;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.page--title {
+		height: 150px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.page--title {
+		height: 125px;
+	}
+	.board {
+		justify-content: space-evenly;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.page--title {
+		height: 100px;
+	}
+}

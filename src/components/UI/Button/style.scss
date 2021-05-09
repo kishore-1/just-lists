@@ -1,0 +1,18 @@
+@import '../../../variable';
+
+.o-btn {
+	display: inline-block;
+	width: 100%;
+	padding: 5px 10px;
+	font-weight: 700;
+	border-radius: 5px;
+	background: $dark-blue;
+	color: $slate;
+	cursor: pointer;
+	transition: $transition;
+
+	&:hover {
+		transform: translateY(-1px);
+		background: lighten($color: $dark-blue, $amount: 3);
+	}
+}

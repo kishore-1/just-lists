@@ -1,0 +1,68 @@
+@import "../../../variable";
+
+.list {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+	background-color: $slate;
+	border-radius: 7px;
+	box-shadow: 5px 5px 8px $shadow;
+	min-height: 127px;
+	height: fit-content;
+	padding: 20px;
+	animation: slide-up 0.4s ease;
+	transition: opacity 0.3s ease;
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+	}
+	&__header {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		color: $dark-blue;
+	}
+	&__name {
+		width: 100%;
+		color: $red;
+		font-size: $fz-xl;
+		font-weight: 700;
+		border: none;
+
+		&:focus {
+			outline: none;
+		}
+	}
+	&__delete {
+		cursor: pointer;
+		color: $dark-gray;
+		transition: $transition;
+
+		&:hover {
+			transform: translateY(-1px);
+			color: darken($color: $dark-gray, $amount: 20);
+		}
+	}
+	&__btn {
+		margin-top: 30px;
+		width: 100%;
+	}
+	&--remove {
+		opacity: 0;
+	}
+}
+
+@keyframes slide-up {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

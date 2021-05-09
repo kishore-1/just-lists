@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
+@import "./_variable";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	min-height: 100%;
+	background-color: $gray;
+	color: $slate;
+	font-family: "Source Sans Pro", "FontAwesome", sans-serif;
+}
+
+[contenteditable][placeholder]:empty:before {
+	content: attr(placeholder);
+	position: absolute;
+	color: gray;
+	background-color: transparent;
+}
+
+@media only screen and (max-width: 480px) {
+	body {
+		font-size: $fz-lg;
+	}
+}
