@@ -40,6 +40,9 @@
     &:focus {
       outline: none;
     }
+    &::placeholder {
+      font-size: $fz-lg;
+    }
   }
   &__delete {
     padding: 10px;
@@ -68,7 +71,7 @@
   background-color: $slate;
   border-radius: 10px;
   color: $darkest-gray;
-  padding: 30px;
+  padding: clamp(15px, 8%, 30px) clamp(5px, 8%, 30px);
 
   &__field {
     margin-top: 15px;

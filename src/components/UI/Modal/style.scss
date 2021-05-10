@@ -17,15 +17,15 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		z-index: 1000;
-		min-height: clamp(200px, 40vh, 400px);
+		min-height: clamp(300px, 40vh, 400px);
 		max-height: 100%;
-		min-width: clamp(200px, 40vw, 400px);;
+		min-width: clamp(300px, 40vw, 400px);;
 		max-width: 80%;
 	}
 	&__delete {
 		position: absolute;
-		top: 15px;
-		right: 15px;
+		top: 20px;
+		right: 20px;
 		color: $dark-gray;
 		cursor: pointer;
 		transition: $transition;

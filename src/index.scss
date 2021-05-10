@@ -15,11 +15,20 @@ body {
 	font-family: "Source Sans Pro", "FontAwesome", sans-serif;
 }
 
-[contenteditable][placeholder]:empty:before {
-	content: attr(placeholder);
-	position: absolute;
-	color: gray;
-	background-color: transparent;
+input[type="search"]::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+	height: 14px;
+	width: 14px;
+	background: url(./assets/svg/cross.svg) no-repeat 50% 50%;
+	background-size: contain;
+	opacity: 0;
+	pointer-events: none;
+}
+
+input[type="search"]:focus::-webkit-search-cancel-button {
+	opacity: 0.4;
+	pointer-events: all;
+	cursor: pointer;
 }
 
 @media only screen and (max-width: 480px) {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './style.scss';
 import Modal from '../../../UI/Modal/Modal';
 import DropdownMenu from '../../../UI/DropdownMenu/DropdownMenu';
-
+import Toast from '../../../UI/Toast/Toast';
 
 const Card = (props) => {
     const [cardData, setCardData] = useState({ title: "", comment: "" });
@@ -10,6 +10,7 @@ const Card = (props) => {
     const [showCardMenu, setShowCardMenu] = useState(false);
     const [remove, setRemove] = useState(false);
     const [showCardDetails, setShowCardDetails] = useState(false);
+    const [toast, setToast] = useState({ show: false, message: "" });
 
     useEffect(() => {
         let cards = localStorage.getItem('cards');
@@ -23,10 +24,20 @@ const Card = (props) => {
     const saveTitle = (title, e) => {
         e && e.preventDefault();
         if (!title) {
-            setRemove(true);
-            setTimeout(props.removeCard, 300, props.id);
+            if (!cardData.title) {
+                setRemove(true);
+                setTimeout(props.removeCard, 300, props.id);
+                return;
+            }
+            setToast({
+                show: true,
+                type: 'warning',
+                message: "Title cannot be empty"
+            });
+            setTitle(cardData.title)
             return;
         }
+
         cardData.title = title;
         setData();
     }
@@ -44,6 +55,12 @@ const Card = (props) => {
     }
     const cardOptions = [
         {
+            menu: "edit",
+            action: () => {
+                setShowCardMenu(false);
+                setShowCardDetails(true);
+            }
+        }, {
             menu: "delete",
             action: () => {
                 setShowCardMenu(false);
@@ -53,6 +70,11 @@ const Card = (props) => {
     ]
     return (
         <>
+            {toast.show && (
+                <Toast type={toast.type} hideToast={setToast}>
+                    {toast.message}
+                </Toast>
+            )}
             <div className={"card " + (cardData.title ? "" : "card--placeholder ") + (remove ? "card--remove" : "")}>
                 {cardData.title
                     ? (
@@ -73,18 +95,16 @@ const Card = (props) => {
                         </div>
                     )
                     : (
-                        <form className="card__inner card__inner--input" onSubmit={(e) => saveTitle(title, e)}>
+                        <form className="card__inner card__inner--input" onSubmit={() => saveTitle(title)}>
                             <input
+                                autoFocus
+                                type="search"
                                 className="card__title"
                                 placeholder="Title..."
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
-                                onBlur={(e) => saveTitle(e.target.value)}
+                                onBlur={() => saveTitle(title)}
                             />
-                            <i
-                                className="fa fa-times card__delete card__delete--light"
-                                onClick={removeCard}
-                            ></i>
                         </form>
                     )
                 }

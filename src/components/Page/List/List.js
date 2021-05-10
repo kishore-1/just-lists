@@ -29,20 +29,30 @@ const List = (props) => {
     }
     const saveListName = (value, e) => {
         e && e.preventDefault();
+        setCanEditList(false);
 
         if (!value) {
-            setRemove(true);
-            setTimeout(props.removeList, 300, props.id)
+            if (!listData.title) {
+                setRemove(true);
+                setTimeout(props.removeList, 300, props.id)
+                return;
+            }
+            setToast({
+                show: true,
+                type: 'warning',
+                message: "Title cannot be empty"
+            });
+            setTitle(listData.title)
             return;
         }
         listData.title = value;
-        setCanEditList(false)
         setData();
     }
     const addCard = () => {
         if (!listData.title) {
             setToast({
                 show: true,
+                type: 'warning',
                 message: "Please add list title"
             });
             return;
@@ -53,6 +63,7 @@ const List = (props) => {
         ) {
             setToast({
                 show: true,
+                type: 'warning',
                 message: "Please add card title"
             });
             return;
@@ -93,7 +104,7 @@ const List = (props) => {
     return (
         <>
             {toast.show && (
-                <Toast type="error" hideToast={setToast}>
+                <Toast type={toast.type} hideToast={setToast}>
                     {toast.message}
                 </Toast>
             )}
@@ -103,22 +114,20 @@ const List = (props) => {
                         ? (
                             <form className="list__inner" onSubmit={(e) => saveListName(title, e)}>
                                 <input
-                                    className="list__name"
+                                    autoFocus
+                                    type="search"
+                                    className="list__title"
                                     maxLength={12}
                                     placeholder="List name..."
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
-                                    onBlur={(e) => saveListName(e.target.value)}
+                                    onBlur={() => saveListName(title)}
                                 />
-                                <i
-                                    className="fa fa-times list__delete"
-                                    onClick={removeList}
-                                ></i>
                             </form>
                         )
                         : (
                             <>
-                                <div className="list__name">
+                                <div className="list__title">
                                     {listData.title}
                                 </div>
                                 <div className="list__option">
